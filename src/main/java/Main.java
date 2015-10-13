@@ -13,16 +13,7 @@ import java.util.Properties;
 public class Main {
     public static void main(String []args){
         Logger log = LoggerFactory.getLogger("name");
-        Properties pro = new Properties();
-        try {
-            pro.load(new FileInputStream("db/config.properites"));
-            String url = pro.getProperty("url");
-            String login = pro.getProperty("login");
-            String password = pro.getProperty("password");
 
-        } catch (IOException e) {
-           log.info(e.toString());
-        }
 
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("module.xml");

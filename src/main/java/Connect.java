@@ -1,6 +1,9 @@
 /**
  * Created by User on 12.10.2015.
  */
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +35,8 @@ public class Connect implements ClientDao {
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            Logger log = LoggerFactory.getLogger("name");
+            log.info(e.toString());
         } finally {
             if (conn != null) {
                 try {
