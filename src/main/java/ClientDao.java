@@ -4,4 +4,6 @@
 public interface ClientDao {
     public void insert(Client client);
     public Client find(int client_id);
+
+    public void delete(int client_id);
 }

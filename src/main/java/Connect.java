@@ -5,10 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by User on 12.10.2015.
@@ -80,6 +77,30 @@ public class Connect implements ClientDao {
             }
         }
     }
+    public void delete(int idClient){
+       String  sql = "DELETE FROM client WHERE idClient ='" + idClient
+                + "'";
+        Connection conn = null;
+        try {
+
+            conn = ds.getConnection();
+            Statement db = conn.createStatement();
+            db.executeUpdate(sql);
+            db.close();
+
+
+    } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+   }
 
     public void setDs(DataSource ds) {
         this.ds = ds;

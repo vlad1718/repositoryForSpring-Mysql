@@ -23,6 +23,7 @@ public class Main {
        // clientDAO.insert(client);
 
        Client client1 = clientDAO.find(2);
+       clientDAO.delete(1);
        log.info(client1.toString());
     }
 }
